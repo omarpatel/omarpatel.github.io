@@ -193,6 +193,7 @@ h1 {
 .accent {
   color: var(--text);
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .cta {
