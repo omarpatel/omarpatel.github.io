@@ -202,7 +202,6 @@ p code { font: 400 .875em/1 var(--mono); color: var(--text); overflow-wrap: anyw
 }
 
 /* Founded: launched products */
-.founded-note { margin-top: 12px; color: var(--text-3); font-size: 15px; line-height: 24px; }
 .ventures { list-style: none; padding: 0; margin-top: 32px; border-bottom: 1px solid var(--rule); }
 .ventures li {
   display: grid; grid-template-columns: 200px minmax(0, 1fr) 96px; column-gap: 16px; row-gap: 2px;
@@ -219,8 +218,6 @@ p code { font: 400 .875em/1 var(--mono); color: var(--text); overflow-wrap: anyw
 .ventures .v-meta { grid-column: 2 / -1; }
 .ventures .v-meta a { color: var(--text-3); }
 .ventures .v-meta a:hover { color: var(--text); }
-.ventures .v-meta > span { white-space: nowrap; }
-.v-status { color: var(--text-2); }
 
 /* Lightbox */
 .lightbox {
