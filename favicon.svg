@@ -1,11 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#5eead4"/>
-      <stop offset="1" stop-color="#818cf8"/>
-    </linearGradient>
-  </defs>
-  <rect width="64" height="64" rx="14" fill="#0b0f17"/>
-  <rect x="1.5" y="1.5" width="61" height="61" rx="12.5" fill="none" stroke="url(#g)" stroke-width="3"/>
-  <text x="32" y="42" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="-1" fill="url(#g)">OP</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><style>path{fill:#1A1A19}@media (prefers-color-scheme:dark){path{fill:#EDECE8}}</style><path d="M32.0 60.0Q24.5 60.0 19.0 56.6Q13.5 53.1 10.5 46.8Q7.4 40.5 7.4 32.0Q7.4 23.4 10.5 17.2Q13.5 10.9 19.0 7.4Q24.5 4.0 32.0 4.0Q39.5 4.0 45.0 7.4Q50.5 10.9 53.5 17.2Q56.6 23.4 56.6 32.0Q56.6 40.5 53.5 46.8Q50.5 53.1 45.0 56.6Q39.5 60.0 32.0 60.0ZM32.0 50.7Q37.8 50.7 41.2 47.1Q44.7 43.5 44.7 36.5V27.5Q44.7 20.4 41.2 16.9Q37.8 13.3 32.0 13.3Q26.3 13.3 22.8 16.9Q19.3 20.4 19.3 27.5V36.5Q19.3 43.5 22.8 47.1Q26.3 50.7 32.0 50.7Z"/></svg>
