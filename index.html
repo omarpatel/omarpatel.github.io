@@ -38,7 +38,8 @@
 
 <main>
   <!-- Projects live in the two sections below. To add one, copy an <article> (featured, with a screenshot)
-       or a <details> row (index), and put its screenshots in img/work/<repo>-720.webp and -1440.webp. -->
+       or a <details> row (index, grouped by its kind label), and put its screenshots in
+       img/work/<repo>-720.webp and -1440.webp. -->
   <section class="section" id="work" aria-labelledby="work-h">
     <h2 id="work-h">Work</h2>
     <!-- llm-trading-arena -->
@@ -56,6 +57,21 @@
         <figcaption>A fresh local instance: ten bots provisioned, no trades yet.</figcaption>
       </figure>
     </article>
+    <!-- prompt-to-app-platform -->
+    <article class="project" id="prompt-to-app-platform">
+      <div class="project-head">
+        <h3><a href="https://github.com/omarpatel/prompt-to-app-platform">Prompt-to-App Platform</a></h3>
+        <span class="source"><a href="https://github.com/omarpatel/prompt-to-app-platform">Source <span class="arrow" aria-hidden="true">↗</span></a></span>
+      </div>
+      <p class="meta">TypeScript · Express · BullMQ · Prisma · Postgres · React · E2B<span class="source-m"> · <a href="https://github.com/omarpatel/prompt-to-app-platform">Source <span class="arrow" aria-hidden="true">↗</span></a></span></p>
+      <p class="desc measure">Turns a one-sentence prompt into a hosted web app. Each app is paired with a coin, and the coin's creator fees pay for a Claude agent in an E2B microVM that builds the app, deploys it and keeps working on it. A build only ships after it passes <code>npm run build</code>, a Playwright smoke test and a reviewer model. Generated apps can't contain network or wallet code; they reach the platform only through a small SDK. Every five minutes a reconcile job checks jobs, payouts and the ledger for drift.</p>
+      <figure class="plate">
+        <button class="plate-open" type="button" aria-label="Enlarge screenshot: Launch page with the headline &ldquo;Launch a coin that builds something.&rdquo; next to a coin preview and a feed of recent apps.">
+          <img src="img/work/prompt-to-app-platform-720.webp" srcset="img/work/prompt-to-app-platform-720.webp 720w, img/work/prompt-to-app-platform-1440.webp 1440w" sizes="(min-width: 900px) 700px, calc(100vw - 60px)" width="1440" height="900" alt="Launch page with the headline &ldquo;Launch a coin that builds something.&rdquo; next to a coin preview and a feed of recent apps." loading="lazy" decoding="async">
+        </button>
+        <figcaption>The launch page.</figcaption>
+      </figure>
+    </article>
     <!-- trader-vaults -->
     <article class="project" id="trader-vaults">
       <div class="project-head">
@@ -64,12 +80,47 @@
       </div>
       <p class="meta">Rust · Anchor · React · Express · Prisma<span class="source-m"> · <a href="https://github.com/omarpatel/trader-vaults">Source <span class="arrow" aria-hidden="true">↗</span></a></span></p>
       <p class="desc measure">Investors pool SOL in a vault, a trader trades it, and the program makes it impossible for the trader to withdraw. Custody sits in a program-owned account whose only swap path is pinned to the Jupiter v6 router and whose only withdrawal path pays depositors. Around it: a trading terminal, token discovery and a separate paper-trading sandbox.</p>
-      <p class="status">Program deployed to devnet. Live trading, withdrawals and an external audit are not finished; mainnet is behind an explicit opt-in.</p>
+      <p class="status">The program is not deployed. Live trading, withdrawals and an external audit are not finished, and mainnet execution needs an explicit opt-in.</p>
       <figure class="plate">
-        <button class="plate-open" type="button" aria-label="Enlarge screenshot: Coffer landing page with the headline &ldquo;Back the best traders. They can never run.&rdquo;">
-          <img src="img/work/trader-vaults-720.webp" srcset="img/work/trader-vaults-720.webp 720w, img/work/trader-vaults-1440.webp 1440w" sizes="(min-width: 900px) 700px, calc(100vw - 60px)" width="1440" height="900" alt="Coffer landing page with the headline &ldquo;Back the best traders. They can never run.&rdquo;" loading="lazy" decoding="async">
+        <button class="plate-open" type="button" aria-label="Enlarge screenshot: Trader Vaults landing page with the headline &ldquo;Back the best traders. They can never run.&rdquo;">
+          <img src="img/work/trader-vaults-720.webp" srcset="img/work/trader-vaults-720.webp 720w, img/work/trader-vaults-1440.webp 1440w" sizes="(min-width: 900px) 700px, calc(100vw - 60px)" width="1440" height="900" alt="Trader Vaults landing page with the headline &ldquo;Back the best traders. They can never run.&rdquo;" loading="lazy" decoding="async">
         </button>
-        <figcaption>Coffer, the web app, running locally in demo mode.</figcaption>
+        <figcaption>The Trader Vaults web app running locally in demo mode.</figcaption>
+      </figure>
+    </article>
+    <!-- leveraged-treasury-engine -->
+    <article class="project" id="leveraged-treasury-engine">
+      <div class="project-head">
+        <h3><a href="https://github.com/omarpatel/leveraged-treasury-engine">Leveraged Treasury Engine</a></h3>
+        <span class="source"><a href="https://github.com/omarpatel/leveraged-treasury-engine">Source <span class="arrow" aria-hidden="true">↗</span></a></span>
+      </div>
+      <p class="meta">Solidity · Foundry · Uniswap V4 · React · viem · Fastify<span class="source-m"> · <a href="https://github.com/omarpatel/leveraged-treasury-engine">Source <span class="arrow" aria-hidden="true">↗</span></a></span></p>
+      <p class="desc measure">Gives a launchpad token its own on-chain treasury. Trading fees are invested in a 3x leveraged vault token, the treasury is marked to market on-chain, and only the gain above cost basis is spent, on buying back and burning the token. Principal is never touched. There are no admin keys: every function is permissionless and every payout address is fixed when the engine is created. If the token goes quiet for 90 days, holders can redeem the treasury pro rata.</p>
+      <p class="status">Not deployed. The contracts are unaudited, and so are the third-party contracts they depend on.</p>
+      <figure class="plate">
+        <button class="plate-open" type="button" aria-label="Enlarge screenshot: Leveraged Treasury Engine landing page reading &ldquo;Leveraged Treasuries for Launchpad Tokens&rdquo; with a register button.">
+          <img src="img/work/leveraged-treasury-engine-720.webp" srcset="img/work/leveraged-treasury-engine-720.webp 720w, img/work/leveraged-treasury-engine-1440.webp 1440w" sizes="(min-width: 900px) 700px, calc(100vw - 60px)" width="1440" height="900" alt="Leveraged Treasury Engine landing page reading &ldquo;Leveraged Treasuries for Launchpad Tokens&rdquo; with a register button." loading="lazy" decoding="async">
+        </button>
+        <figcaption>The front end running in mock mode.</figcaption>
+      </figure>
+    </article>
+    <!-- fee-split-vaults-postmortem -->
+    <article class="project" id="fee-split-vaults-postmortem">
+      <div class="project-head">
+        <h3><a href="https://github.com/omarpatel/fee-split-vaults-postmortem">Fee-Split Vaults</a></h3>
+        <span class="source"><a href="https://github.com/omarpatel/fee-split-vaults-postmortem">Source <span class="arrow" aria-hidden="true">↗</span></a></span>
+      </div>
+      <p class="meta">Solidity · Foundry · TypeScript · React · Postgres<span class="source-m"> · <a href="https://github.com/omarpatel/fee-split-vaults-postmortem">Source <span class="arrow" aria-hidden="true">↗</span></a></span></p>
+      <p class="desc measure">A creator-fee vault protocol, and the measurement that said not to launch it. Each token's vault splits every fee between the creator, a promotion budget and the operator, and the contracts and tests are complete. Before deploying, I measured the venue's full 36-day on-chain history. Only 73 fee recipients were winnable against the 109 needed to break even, so the verdict was STOP and it was never deployed.</p>
+      <pre><code>$ node tools/reprice.ts --tenure-days 11.59 \
+    --operator-bps 500 --clients-above-gate 73
+! VERDICT: STOP
+  feasibility ratio             : 0.68  (NOT ACHIEVABLE)</code></pre>
+      <figure class="plate">
+        <button class="plate-open" type="button" aria-label="Enlarge screenshot: Receipts page headed &ldquo;Receipts, per coin, whether or not the week went well&rdquo; listing three vaults and their fee splits.">
+          <img src="img/work/fee-split-vaults-postmortem-720.webp" srcset="img/work/fee-split-vaults-postmortem-720.webp 720w, img/work/fee-split-vaults-postmortem-1440.webp 1440w" sizes="(min-width: 900px) 700px, calc(100vw - 60px)" width="1440" height="900" alt="Receipts page headed &ldquo;Receipts, per coin, whether or not the week went well&rdquo; listing three vaults and their fee splits." loading="lazy" decoding="async">
+        </button>
+        <figcaption>Receipts page running on the in-memory demo backend.</figcaption>
       </figure>
     </article>
     <!-- fee-routed-fundraising -->
@@ -81,25 +132,10 @@
       <p class="meta">Next.js · Drizzle · libSQL · Solana · Jupiter · Helius<span class="source-m"> · <a href="https://github.com/omarpatel/fee-routed-fundraising">Source <span class="arrow" aria-hidden="true">↗</span></a></span></p>
       <p class="desc measure">Lets a token's creator fees fund a real cause. Fees collect at a route address, get swapped to USDC into a vault and are delivered to a fundraiser by card or on-chain. Each delivery produces a receipt whose SHA-256 is anchored on Solana, so anyone can check where the money went. Every on-chain send is recorded with its signature before broadcast, so nothing is sent twice while it might still land.</p>
       <figure class="plate">
-        <button class="plate-open" type="button" aria-label="Enlarge screenshot: Vouch landing page reading &ldquo;Fund anyone on the internet&rdquo; beside a delivery receipt stamped &ldquo;Delivered&rdquo;.">
-          <img src="img/work/fee-routed-fundraising-720.webp" srcset="img/work/fee-routed-fundraising-720.webp 720w, img/work/fee-routed-fundraising-1440.webp 1440w" sizes="(min-width: 900px) 700px, calc(100vw - 60px)" width="1440" height="900" alt="Vouch landing page reading &ldquo;Fund anyone on the internet&rdquo; beside a delivery receipt stamped &ldquo;Delivered&rdquo;." loading="lazy" decoding="async">
+        <button class="plate-open" type="button" aria-label="Enlarge screenshot: Fee Router landing page reading &ldquo;Fund anyone on the internet&rdquo; beside a delivery receipt stamped &ldquo;Delivered&rdquo;.">
+          <img src="img/work/fee-routed-fundraising-720.webp" srcset="img/work/fee-routed-fundraising-720.webp 720w, img/work/fee-routed-fundraising-1440.webp 1440w" sizes="(min-width: 900px) 700px, calc(100vw - 60px)" width="1440" height="900" alt="Fee Router landing page reading &ldquo;Fund anyone on the internet&rdquo; beside a delivery receipt stamped &ldquo;Delivered&rdquo;." loading="lazy" decoding="async">
         </button>
-        <figcaption>Landing page running locally with fictional seed data.</figcaption>
-      </figure>
-    </article>
-    <!-- onchain-economy-sim -->
-    <article class="project" id="onchain-economy-sim">
-      <div class="project-head">
-        <h3><a href="https://github.com/omarpatel/onchain-economy-sim">On-chain Economy Sim</a></h3>
-        <span class="source"><a href="https://github.com/omarpatel/onchain-economy-sim">Source <span class="arrow" aria-hidden="true">↗</span></a></span>
-      </div>
-      <p class="meta">TypeScript · Next.js · React Three Fiber · Rust · Anchor<span class="source-m"> · <a href="https://github.com/omarpatel/onchain-economy-sim">Source <span class="arrow" aria-hidden="true">↗</span></a></span></p>
-      <p class="desc measure">A multiplayer strategy game on a shared 32×32 map with 14 goods, a clearing market, a share exchange with IPOs and a bank. A dependency-free deterministic engine computes each tick and replays byte for byte, and one tick server is the only authority. Each epoch a settlement worker publishes Merkle roots to four Anchor programs where players claim payouts, capped by real on-chain inflows.</p>
-      <figure class="plate">
-        <button class="plate-open" type="button" aria-label="Enlarge screenshot: World landing page over a 3D city render, with live counts of companies, buildings and volume.">
-          <img src="img/work/onchain-economy-sim-720.webp" srcset="img/work/onchain-economy-sim-720.webp 720w, img/work/onchain-economy-sim-1440.webp 1440w" sizes="(min-width: 900px) 700px, calc(100vw - 60px)" width="1440" height="900" alt="World landing page over a 3D city render, with live counts of companies, buildings and volume." loading="lazy" decoding="async">
-        </button>
-        <figcaption>Landing page running locally against the tick server.</figcaption>
+        <figcaption>Fee Router landing page running locally with fictional seed data.</figcaption>
       </figure>
     </article>
   </section>
@@ -107,19 +143,28 @@
   <section class="section" id="more" aria-labelledby="more-h">
     <h2 id="more-h">More</h2>
     <div class="index">
-    <!-- agent-treasury -->
-    <details id="agent-treasury">
-      <summary><span class="row-title">Agent Treasury</span><span class="row-line">AI agents that pay for their own compute until the money runs out.</span><span class="row-kind">Agents</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <!-- copy-trade-vault-program -->
+    <details id="copy-trade-vault-program">
+      <summary><span class="row-title">Copy-Trade Vaults</span><span class="row-line">Copies one wallet’s pump.fun trades, with every copy checked on-chain.</span><span class="row-kind">Trading</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
       <div class="row-body">
-        <p class="measure">A buyer funds an agent with USDC. After a one-time platform fee, the rest becomes its treasury in its own Solana wallet, and every heartbeat it pays for its LLM calls and rent from that balance. A double-entry ledger tracks fees, spend and earnings. When the treasury hits zero the agent moves to the graveyard. A demo mode runs with an in-memory chain and a mock model.</p>
-        <p class="stack">TypeScript · Fastify · Drizzle · PostgreSQL · React</p>
-        <p class="source-line"><a href="https://github.com/omarpatel/agent-treasury">Source <span class="arrow" aria-hidden="true">↗</span></a></p>
-      <figure class="plate">
-        <button class="plate-open" type="button" aria-label="Enlarge screenshot: Agent Treasury dashboard listing a seeded colony of agents with their treasury balances and status.">
-          <img src="img/work/agent-treasury-720.webp" srcset="img/work/agent-treasury-720.webp 720w, img/work/agent-treasury-1440.webp 1440w" sizes="(min-width: 900px) 700px, calc(100vw - 60px)" width="1440" height="900" alt="Agent Treasury dashboard listing a seeded colony of agents with their treasury balances and status." loading="lazy" decoding="async">
-        </button>
-        <figcaption>Demo mode: seeded colony, simulated chain, mock LLM.</figcaption>
-      </figure>
+        <p class="measure">The off-chain keeper only decides when to submit a copy. The program decides whether it is allowed: it re-reads the target's token balance, caps the size by the target's own trade and measures every fill from balance deltas. Profit above a high-water mark goes to buybacks, there is no withdraw instruction, and config changes wait out a timelock. It is not deployed to any public cluster.</p>
+        <p class="stack">Rust · Anchor · TypeScript · LiteSVM · Fastify</p>
+        <p class="source-line"><a href="https://github.com/omarpatel/copy-trade-vault-program">Source <span class="arrow" aria-hidden="true">↗</span></a></p>
+      </div>
+    </details>
+    <!-- fee-treasury-perps-engine -->
+    <details id="fee-treasury-perps-engine">
+      <summary><span class="row-title">Fee Treasury Perps Engine</span><span class="row-line">Trades part of a token’s creator fees as stock perps and burns the token with the rest.</span><span class="row-kind">Trading</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <div class="row-body">
+        <p class="measure">Creator fees from Robinhood Chain launchpads are split between a trading book on Hyperliquid's US-equity perps and buybacks that burn the token. An append-only double-entry ledger in SQLite is reconciled against wallet and venue balances and shown on a /proof page. It starts in paper mode with real prices, and live mode refuses to start until a set of explicit settings is present.</p>
+        <p class="stack">TypeScript · Hono · SQLite · React · Hyperliquid</p>
+        <p class="source-line"><a href="https://github.com/omarpatel/fee-treasury-perps-engine">Source <span class="arrow" aria-hidden="true">↗</span></a></p>
+        <figure class="plate">
+          <button class="plate-open" type="button" aria-label="Enlarge screenshot: Fee Treasury dashboard titled &ldquo;Live&rdquo; with book value, open positions and an activity feed, all in paper mode.">
+            <img src="img/work/fee-treasury-perps-engine-720.webp" srcset="img/work/fee-treasury-perps-engine-720.webp 720w, img/work/fee-treasury-perps-engine-1440.webp 1440w" sizes="(min-width: 900px) 700px, calc(100vw - 60px)" width="1440" height="900" alt="Fee Treasury dashboard titled &ldquo;Live&rdquo; with book value, open positions and an activity feed, all in paper mode." loading="lazy" decoding="async">
+          </button>
+          <figcaption>Dashboard in paper mode.</figcaption>
+        </figure>
       </div>
     </details>
     <!-- paper-trading-platform -->
@@ -129,12 +174,12 @@
         <p class="measure">One Express and WebSocket API feeds a Next.js app, a Chrome extension that adds paper-trading controls to third-party terminals, and an Expo app. Includes automated orders, DCA, rug-risk checks and a lesson track.</p>
         <p class="stack">Turborepo · Express · Next.js · Expo · Firebase</p>
         <p class="source-line"><a href="https://github.com/omarpatel/paper-trading-platform">Source <span class="arrow" aria-hidden="true">↗</span></a></p>
-      <figure class="plate">
-        <button class="plate-open" type="button" aria-label="Enlarge screenshot: Paper trading web app landing page with a headline and sign-up call to action.">
-          <img src="img/work/paper-trading-platform-720.webp" srcset="img/work/paper-trading-platform-720.webp 720w, img/work/paper-trading-platform-1440.webp 1440w" sizes="(min-width: 900px) 700px, calc(100vw - 60px)" width="1440" height="900" alt="Paper trading web app landing page with a headline and sign-up call to action." loading="lazy" decoding="async">
-        </button>
-        <figcaption>Web app landing page running locally.</figcaption>
-      </figure>
+        <figure class="plate">
+          <button class="plate-open" type="button" aria-label="Enlarge screenshot: Paper trading web app landing page with the headline &ldquo;Paper trade Solana tokens like a degen&rdquo; and a launch button.">
+            <img src="img/work/paper-trading-platform-720.webp" srcset="img/work/paper-trading-platform-720.webp 720w, img/work/paper-trading-platform-1440.webp 1440w" sizes="(min-width: 900px) 700px, calc(100vw - 60px)" width="1440" height="900" alt="Paper trading web app landing page with the headline &ldquo;Paper trade Solana tokens like a degen&rdquo; and a launch button." loading="lazy" decoding="async">
+          </button>
+          <figcaption>Web app landing page running locally.</figcaption>
+        </figure>
       </div>
     </details>
     <!-- ibkr-live-dashboard -->
@@ -144,36 +189,189 @@
         <p class="measure">A small FastAPI server connects to TWS with the read-only flag, so it can't place orders. Every two seconds it pushes one snapshot to the browser over a WebSocket. The front end is plain HTML, CSS and JavaScript with an inline SVG chart and no build step.</p>
         <p class="stack">Python · FastAPI · ib_async · vanilla JS</p>
         <p class="source-line"><a href="https://github.com/omarpatel/ibkr-live-dashboard">Source <span class="arrow" aria-hidden="true">↗</span></a></p>
-      <figure class="plate">
-        <button class="plate-open" type="button" aria-label="Enlarge screenshot: IBKR dashboard showing account P&amp;L figures, an intraday P&amp;L line chart and a positions table.">
-          <img src="img/work/ibkr-live-dashboard-720.webp" srcset="img/work/ibkr-live-dashboard-720.webp 720w, img/work/ibkr-live-dashboard-1440.webp 1440w" sizes="(min-width: 900px) 700px, calc(100vw - 60px)" width="1440" height="1088" alt="IBKR dashboard showing account P&amp;L figures, an intraday P&amp;L line chart and a positions table." loading="lazy" decoding="async">
-        </button>
-        <figcaption>Demo mode: a random-walk portfolio.</figcaption>
-      </figure>
+        <figure class="plate">
+          <button class="plate-open" type="button" aria-label="Enlarge screenshot: IBKR dashboard showing account P&amp;L figures, an intraday P&amp;L line chart and a positions table.">
+            <img src="img/work/ibkr-live-dashboard-720.webp" srcset="img/work/ibkr-live-dashboard-720.webp 720w, img/work/ibkr-live-dashboard-1440.webp 1440w" sizes="(min-width: 900px) 700px, calc(100vw - 60px)" width="1440" height="1088" alt="IBKR dashboard showing account P&amp;L figures, an intraday P&amp;L line chart and a positions table." loading="lazy" decoding="async">
+          </button>
+          <figcaption>Demo mode: a random-walk portfolio.</figcaption>
+        </figure>
       </div>
     </details>
     <!-- ibkr-algo-trader -->
     <details id="ibkr-algo-trader">
-      <summary><span class="row-title">IBKR Algo Trader</span><span class="row-line">Backtesting and paper trading for Interactive Brokers, always measured against buy-and-hold.</span><span class="row-kind">Quant</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <summary><span class="row-title">IBKR Algo Trader</span><span class="row-line">Backtesting and paper trading for Interactive Brokers, always measured against buy-and-hold.</span><span class="row-kind">Trading</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
       <div class="row-body">
         <p class="measure">A cost-aware backtester, walk-forward validation, Monte Carlo bootstraps and an XGBoost trade filter with leakage tests. Paper-trading sleeves run behind hard risk limits and a kill switch, and live trading requires an explicit environment variable.</p>
         <p class="stack">Python · pandas · XGBoost · scikit-learn · Flask</p>
         <p class="source-line"><a href="https://github.com/omarpatel/ibkr-algo-trader">Source <span class="arrow" aria-hidden="true">↗</span></a></p>
       </div>
     </details>
+    <!-- twab-stock-dividend-distributor -->
+    <details id="twab-stock-dividend-distributor">
+      <summary><span class="row-title">Stock Dividend Distributor</span><span class="row-line">Pays a token’s holders in tokenized stocks, weighted by how long they held.</span><span class="row-kind">Payouts</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <div class="row-body">
+        <p class="measure">Each token gets a distributor that receives its creator fees, swaps them into a fixed basket of three to six stock tokens and pays holders by their time-weighted average balance over the round, so buying right before a payout earns almost nothing. Rounds are committed as Merkle roots. If the keeper goes silent for 30 days, anyone can commit the round. It is not deployed.</p>
+        <p class="stack">Solidity · Foundry · TypeScript · Hono · Next.js</p>
+        <p class="source-line"><a href="https://github.com/omarpatel/twab-stock-dividend-distributor">Source <span class="arrow" aria-hidden="true">↗</span></a></p>
+        <figure class="plate">
+          <button class="plate-open" type="button" aria-label="Enlarge screenshot: Landing page reading &ldquo;Coins that pay you in real stock.&rdquo; beside a sample payout receipt in NVDA.">
+            <img src="img/work/twab-stock-dividend-distributor-720.webp" srcset="img/work/twab-stock-dividend-distributor-720.webp 720w, img/work/twab-stock-dividend-distributor-1440.webp 1440w" sizes="(min-width: 900px) 700px, calc(100vw - 60px)" width="1440" height="900" alt="Landing page reading &ldquo;Coins that pay you in real stock.&rdquo; beside a sample payout receipt in NVDA." loading="lazy" decoding="async">
+          </button>
+          <figcaption>Web UI with sample data.</figcaption>
+        </figure>
+      </div>
+    </details>
+    <!-- solana-invoicing -->
+    <details id="solana-invoicing">
+      <summary><span class="row-title">Solana Invoicing</span><span class="row-line">Payment links, escrow and split payments in SOL, USDC or USDT.</span><span class="row-kind">Payments</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <div class="row-body">
+        <p class="measure">Each payment link gets its own generated wallet, and incoming funds are forwarded to the merchant or split between several recipients. Three escrow types cover two-sided deposits, milestone payments and atomic swaps, with timeouts, disputes and an audit log. Escrow keys are encrypted with AES-256-GCM. A small Chrome extension makes a payment link from any page.</p>
+        <p class="stack">Next.js · TypeScript · Supabase · Solana</p>
+        <p class="source-line"><a href="https://github.com/omarpatel/solana-invoicing">Source <span class="arrow" aria-hidden="true">↗</span></a></p>
+        <figure class="plate">
+          <button class="plate-open" type="button" aria-label="Enlarge screenshot: Solana Invoicing home page reading &ldquo;Payment Infrastructure for Solana&rdquo; above a payment form.">
+            <img src="img/work/solana-invoicing-720.webp" srcset="img/work/solana-invoicing-720.webp 720w, img/work/solana-invoicing-1440.webp 1440w" sizes="(min-width: 900px) 700px, calc(100vw - 60px)" width="1440" height="900" alt="Solana Invoicing home page reading &ldquo;Payment Infrastructure for Solana&rdquo; above a payment form." loading="lazy" decoding="async">
+          </button>
+          <figcaption>Home page.</figcaption>
+        </figure>
+      </div>
+    </details>
+    <!-- crypto-checkout-extension -->
+    <details id="crypto-checkout-extension">
+      <summary><span class="row-title">Crypto Checkout</span><span class="row-line">A browser extension that pays at an ordinary card checkout from a USDC or SOL balance.</span><span class="row-kind">Payments</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <div class="row-body">
+        <p class="measure">The extension finds the card form, reads the cart total and asks the backend for a quote. After the user approves, it fills the form with a virtual card issued for that one purchase. Its panel is drawn in a closed Shadow DOM so the store's scripts can't reach it. Without a Stripe key the backend returns the Visa test card instead.</p>
+        <p class="stack">JavaScript · Manifest V3 · Node.js · SQLite · Stripe Issuing</p>
+        <p class="source-line"><a href="https://github.com/omarpatel/crypto-checkout-extension">Source <span class="arrow" aria-hidden="true">↗</span></a></p>
+        <figure class="plate">
+          <button class="plate-open" type="button" aria-label="Enlarge screenshot: Crypto Checkout dashboard with a USD balance, USDC and SOL balances and a list of recent payments.">
+            <img src="img/work/crypto-checkout-extension-720.webp" srcset="img/work/crypto-checkout-extension-720.webp 720w, img/work/crypto-checkout-extension-1440.webp 1440w" sizes="(min-width: 900px) 700px, calc(100vw - 60px)" width="1440" height="900" alt="Crypto Checkout dashboard with a USD balance, USDC and SOL balances and a list of recent payments." loading="lazy" decoding="async">
+          </button>
+          <figcaption>Dashboard.</figcaption>
+        </figure>
+      </div>
+    </details>
+    <!-- agent-treasury -->
+    <details id="agent-treasury">
+      <summary><span class="row-title">Agent Treasury</span><span class="row-line">AI agents that pay for their own compute until the money runs out.</span><span class="row-kind">Agents</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <div class="row-body">
+        <p class="measure">A buyer funds an agent with USDC. After a one-time platform fee, the rest becomes its treasury in its own Solana wallet, and every heartbeat it pays for its LLM calls and rent from that balance. A double-entry ledger tracks fees, spend and earnings. When the treasury hits zero the agent moves to the graveyard. A demo mode runs with an in-memory chain and a mock model.</p>
+        <p class="stack">TypeScript · Fastify · Drizzle · PostgreSQL · React</p>
+        <p class="source-line"><a href="https://github.com/omarpatel/agent-treasury">Source <span class="arrow" aria-hidden="true">↗</span></a></p>
+        <figure class="plate">
+          <button class="plate-open" type="button" aria-label="Enlarge screenshot: Agent Treasury dashboard reading &ldquo;Give an AI ten dollars and see how long it lasts.&rdquo; with colony stats and a ledger.">
+            <img src="img/work/agent-treasury-720.webp" srcset="img/work/agent-treasury-720.webp 720w, img/work/agent-treasury-1440.webp 1440w" sizes="(min-width: 900px) 700px, calc(100vw - 60px)" width="1440" height="900" alt="Agent Treasury dashboard reading &ldquo;Give an AI ten dollars and see how long it lasts.&rdquo; with colony stats and a ledger." loading="lazy" decoding="async">
+          </button>
+          <figcaption>Demo mode: seeded colony, simulated chain, mock LLM.</figcaption>
+        </figure>
+      </div>
+    </details>
+    <!-- wallet-behavior-graph -->
+    <details id="wallet-behavior-graph">
+      <summary><span class="row-title">Wallet Behavior Graph</span><span class="row-line">Profiles Solana wallets from their trades and maps which ones follow which.</span><span class="row-kind">Analytics</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <div class="row-body">
+        <p class="measure">Each tracked wallet gets an archetype and flags from deterministic rules, with the numbers that triggered each label. A lead-lag graph links wallets that keep entering the same tokens shortly after one another, and each link has to pass a permutation test. Language models write explanations from those numbers but never assign a label. Agents trade on paper unless live mode is explicitly enabled.</p>
+        <p class="stack">Next.js · TypeScript · SQLite · graphology · sigma.js</p>
+        <p class="source-line"><a href="https://github.com/omarpatel/wallet-behavior-graph">Source <span class="arrow" aria-hidden="true">↗</span></a></p>
+        <figure class="plate">
+          <button class="plate-open" type="button" aria-label="Enlarge screenshot: Wallet Graph home page reading &ldquo;Trading styles from on-chain history. Who moves first, who follows.&rdquo;">
+            <img src="img/work/wallet-behavior-graph-720.webp" srcset="img/work/wallet-behavior-graph-720.webp 720w, img/work/wallet-behavior-graph-1440.webp 1440w" sizes="(min-width: 900px) 700px, calc(100vw - 60px)" width="1440" height="900" alt="Wallet Graph home page reading &ldquo;Trading styles from on-chain history. Who moves first, who follows.&rdquo;" loading="lazy" decoding="async">
+          </button>
+          <figcaption>Home page.</figcaption>
+        </figure>
+      </div>
+    </details>
+    <!-- dlmm-liquidity-explorer -->
+    <details id="dlmm-liquidity-explorer">
+      <summary><span class="row-title">DLMM Liquidity Explorer</span><span class="row-line">Ranks Solana concentrated-liquidity pools by the fees they paid LPs in the last 24 hours.</span><span class="row-kind">Analytics</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <div class="row-body">
+        <p class="measure">An Express API polls Raydium and Meteora every 30 seconds and computes fee yield per pool. The front end draws the top pools as rivers on a 3D terrain, and signed-in users can open, harvest and close Raydium positions from a custodial wallet. It holds user keys on mainnet and has not been audited, so the README says to use small amounts only.</p>
+        <p class="stack">Next.js · three.js · Express · Raydium SDK</p>
+        <p class="source-line"><a href="https://github.com/omarpatel/dlmm-liquidity-explorer">Source <span class="arrow" aria-hidden="true">↗</span></a></p>
+      </div>
+    </details>
     <!-- deployer-forensics -->
     <details id="deployer-forensics">
-      <summary><span class="row-title">Deployer Forensics</span><span class="row-line">A zero-dependency CLI that scores a pump.fun token creator from 0 to 100.</span><span class="row-kind">Security</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <summary><span class="row-title">Deployer Forensics</span><span class="row-line">A zero-dependency CLI that scores a pump.fun token creator from 0 to 100.</span><span class="row-kind">Analytics</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
       <div class="row-body">
         <p class="measure">Pulls a creator's launch history, computes eight behavioural signals and combines them into a score with a risk band. Signals without enough data are reported as unmeasured and left out of the score, not counted as clean.</p>
         <p class="stack">Node.js · no dependencies</p>
         <p class="source-line"><a href="https://github.com/omarpatel/deployer-forensics">Source <span class="arrow" aria-hidden="true">↗</span></a></p>
-      <pre><code>$ node devscan.js &lt;creator-wallet | token-mint&gt; --chain
+        <pre><code>$ node deployer-forensics.js &lt;creator-wallet | token-mint&gt; --chain
 
 75–100  EXTRACTION FACTORY
 50–74   HIGH RISK
 25–49   ELEVATED
 0–24    NO FACTORY SIGNATURE</code></pre>
+      </div>
+    </details>
+    <!-- solana-name-registry -->
+    <details id="solana-name-registry">
+      <summary><span class="row-title">Solana Name Registry</span><span class="row-line">Short @handles that point to Solana wallets, with lookup and send by name.</span><span class="row-kind">Wallets</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <div class="row-body">
+        <p class="measure">An Anchor program stores each handle in its own account and charges a yearly fee that is higher for shorter names. An Express API resolves handles from Supabase first and the on-chain account second. The web app looks handles up, sends SOL through Phantom and grinds vanity addresses in the browser. The program is not deployed.</p>
+        <p class="stack">Rust · Anchor · Express · Supabase · React</p>
+        <p class="source-line"><a href="https://github.com/omarpatel/solana-name-registry">Source <span class="arrow" aria-hidden="true">↗</span></a></p>
+        <figure class="plate">
+          <button class="plate-open" type="button" aria-label="Enlarge screenshot: Lookup screen with a large &ldquo;@handles&rdquo; heading and a search field.">
+            <img src="img/work/solana-name-registry-720.webp" srcset="img/work/solana-name-registry-720.webp 720w, img/work/solana-name-registry-1440.webp 1440w" sizes="(min-width: 900px) 700px, calc(100vw - 60px)" width="1440" height="900" alt="Lookup screen with a large &ldquo;@handles&rdquo; heading and a search field." loading="lazy" decoding="async">
+          </button>
+          <figcaption>Lookup screen.</figcaption>
+        </figure>
+      </div>
+    </details>
+    <!-- hd-wallet-sweeper -->
+    <details id="hd-wallet-sweeper">
+      <summary><span class="row-title">HD Wallet Sweeper</span><span class="row-line">Recovers funds spread across many addresses derived from one seed.</span><span class="row-kind">Wallets</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <div class="row-body">
+        <p class="measure">Two CLIs, one for EVM chains and one for Solana, derive addresses from the common wallet paths, check balances and move everything to one destination, tokens included. They only report what they would do unless you pass <code>--send</code>, and then you still have to type SWEEP. The Solana tool closes emptied token accounts to get their rent back.</p>
+        <p class="stack">Node.js · EVM · Solana</p>
+        <p class="source-line"><a href="https://github.com/omarpatel/hd-wallet-sweeper">Source <span class="arrow" aria-hidden="true">↗</span></a></p>
+      </div>
+    </details>
+    <!-- vanity-address-grinder -->
+    <details id="vanity-address-grinder">
+      <summary><span class="row-title">Vanity Address Grinder</span><span class="row-line">Solana and Ethereum addresses that start or end with a pattern you choose.</span><span class="row-kind">Wallets</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <div class="row-body">
+        <p class="measure">Key generation runs on every CPU core but one with Node worker threads, and a local page shows progress over Server-Sent Events. Patterns are validated before any work starts. Keys never leave the local process, and the server only listens on loopback.</p>
+        <p class="stack">Node.js · worker_threads</p>
+        <p class="source-line"><a href="https://github.com/omarpatel/vanity-address-grinder">Source <span class="arrow" aria-hidden="true">↗</span></a></p>
+        <figure class="plate">
+          <button class="plate-open" type="button" aria-label="Enlarge screenshot: Vanity wallet generator showing a found Solana address starting with &ldquo;abc&rdquo; and its secret key.">
+            <img src="img/work/vanity-address-grinder-720.webp" srcset="img/work/vanity-address-grinder-720.webp 720w, img/work/vanity-address-grinder-1440.webp 1440w" sizes="(min-width: 900px) 700px, calc(100vw - 60px)" width="1440" height="900" alt="Vanity wallet generator showing a found Solana address starting with &ldquo;abc&rdquo; and its secret key." loading="lazy" decoding="async">
+          </button>
+          <figcaption>Web UI after finding an address starting with &ldquo;abc&rdquo;.</figcaption>
+        </figure>
+      </div>
+    </details>
+    <!-- onchain-economy-sim -->
+    <details id="onchain-economy-sim">
+      <summary><span class="row-title">On-chain Economy Sim</span><span class="row-line">A multiplayer strategy game whose payouts settle on Solana.</span><span class="row-kind">Games</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <div class="row-body">
+        <p class="measure">A shared 32×32 map with 14 goods, a clearing market, a share exchange with IPOs and a bank. A dependency-free deterministic engine computes each tick and replays byte for byte, and one tick server is the only authority. Each epoch a settlement worker publishes Merkle roots to four Anchor programs where players claim payouts, capped by real on-chain inflows.</p>
+        <p class="stack">TypeScript · Next.js · React Three Fiber · Rust · Anchor</p>
+        <p class="source-line"><a href="https://github.com/omarpatel/onchain-economy-sim">Source <span class="arrow" aria-hidden="true">↗</span></a></p>
+        <figure class="plate">
+          <button class="plate-open" type="button" aria-label="Enlarge screenshot: Economy Sim landing page over a 3D city render, with live counts of companies, buildings and volume.">
+            <img src="img/work/onchain-economy-sim-720.webp" srcset="img/work/onchain-economy-sim-720.webp 720w, img/work/onchain-economy-sim-1440.webp 1440w" sizes="(min-width: 900px) 700px, calc(100vw - 60px)" width="1440" height="900" alt="Economy Sim landing page over a 3D city render, with live counts of companies, buildings and volume." loading="lazy" decoding="async">
+          </button>
+          <figcaption>Landing page running locally against the tick server.</figcaption>
+        </figure>
+      </div>
+    </details>
+    <!-- multiplayer-snake-arena -->
+    <details id="multiplayer-snake-arena">
+      <summary><span class="row-title">Multiplayer Snake Arena</span><span class="row-line">Real-time multiplayer snake, with bots filling the empty seats.</span><span class="row-kind">Games</span><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <div class="row-body">
+        <p class="measure">A Node server runs the game at 30 ticks per second and is the only source of truth. Browsers send a steering angle and a boost flag and draw whatever the server broadcasts. Bots steer away from walls and other snakes, chase pellets and get a random skill level, so you can play alone.</p>
+        <p class="stack">TypeScript · Node.js · Socket.IO · Next.js</p>
+        <p class="source-line"><a href="https://github.com/omarpatel/multiplayer-snake-arena">Source <span class="arrow" aria-hidden="true">↗</span></a></p>
+        <figure class="plate">
+          <button class="plate-open" type="button" aria-label="Enlarge screenshot: Snake game canvas with a green snake among pellets, a top-players list and the player’s stats.">
+            <img src="img/work/multiplayer-snake-arena-720.webp" srcset="img/work/multiplayer-snake-arena-720.webp 720w, img/work/multiplayer-snake-arena-1440.webp 1440w" sizes="(min-width: 900px) 700px, calc(100vw - 60px)" width="1440" height="900" alt="Snake game canvas with a green snake among pellets, a top-players list and the player’s stats." loading="lazy" decoding="async">
+          </button>
+          <figcaption>A 5-player round against bots.</figcaption>
+        </figure>
       </div>
     </details>
     <!-- live-call-subtitles -->
@@ -198,8 +396,13 @@
       </li>
       <li>
         <h3>Reconcile against the chain.</h3>
-        <p>Internal ledgers are checked against on-chain balances, and fundraising receipts are hashed and anchored on Solana.</p>
-        <p class="evidence"><a href="https://github.com/omarpatel/llm-trading-arena#features">llm-trading-arena#features <span class="arrow" aria-hidden="true">↗</span></a><a href="https://github.com/omarpatel/fee-routed-fundraising#overview">fee-routed-fundraising#overview <span class="arrow" aria-hidden="true">↗</span></a></p>
+        <p>Internal ledgers are checked against on-chain and venue balances, and the result is shown on a /proof page. Fundraising receipts are hashed and anchored on Solana.</p>
+        <p class="evidence"><a href="https://github.com/omarpatel/llm-trading-arena#features">llm-trading-arena#features <span class="arrow" aria-hidden="true">↗</span></a><a href="https://github.com/omarpatel/fee-treasury-perps-engine#what-is-in-the-engine">fee-treasury-perps-engine#what-is-in-the-engine <span class="arrow" aria-hidden="true">↗</span></a><a href="https://github.com/omarpatel/fee-routed-fundraising#overview">fee-routed-fundraising#overview <span class="arrow" aria-hidden="true">↗</span></a></p>
+      </li>
+      <li>
+        <h3>Measure before launching.</h3>
+        <p>Fee-Split Vaults was finished and tested, then measured against the venue&rsquo;s real on-chain history. The numbers said it couldn&rsquo;t break even, so it was never deployed, and the write-up is in the repo.</p>
+        <p class="evidence"><a href="https://github.com/omarpatel/fee-split-vaults-postmortem#the-result">fee-split-vaults-postmortem#the-result <span class="arrow" aria-hidden="true">↗</span></a></p>
       </li>
       <li>
         <h3>Say &ldquo;unknown&rdquo; instead of guessing.</h3>
@@ -208,13 +411,13 @@
       </li>
       <li>
         <h3>Make the dangerous path opt-in.</h3>
-        <p>Live trading needs <code>I_UNDERSTAND_LIVE_TRADING_RISKS=yes</code>. Mainnet execution sits behind a flag. The settlement worker runs dry by default, and the dashboard connects read-only.</p>
-        <p class="evidence"><a href="https://github.com/omarpatel/ibkr-algo-trader#getting-started">ibkr-algo-trader#getting-started <span class="arrow" aria-hidden="true">↗</span></a><a href="https://github.com/omarpatel/trader-vaults#overview">trader-vaults#overview <span class="arrow" aria-hidden="true">↗</span></a><a href="https://github.com/omarpatel/onchain-economy-sim#getting-started">onchain-economy-sim#getting-started <span class="arrow" aria-hidden="true">↗</span></a><a href="https://github.com/omarpatel/ibkr-live-dashboard#overview">ibkr-live-dashboard#overview <span class="arrow" aria-hidden="true">↗</span></a></p>
+        <p>Live trading needs <code>I_UNDERSTAND_LIVE_TRADING_RISKS=yes</code>. Mainnet execution sits behind a flag, the settlement worker runs dry by default, and the wallet sweeper only reports until you pass <code>--send</code> and type SWEEP.</p>
+        <p class="evidence"><a href="https://github.com/omarpatel/ibkr-algo-trader#getting-started">ibkr-algo-trader#getting-started <span class="arrow" aria-hidden="true">↗</span></a><a href="https://github.com/omarpatel/trader-vaults#overview">trader-vaults#overview <span class="arrow" aria-hidden="true">↗</span></a><a href="https://github.com/omarpatel/onchain-economy-sim#features">onchain-economy-sim#features <span class="arrow" aria-hidden="true">↗</span></a><a href="https://github.com/omarpatel/hd-wallet-sweeper">hd-wallet-sweeper <span class="arrow" aria-hidden="true">↗</span></a></p>
       </li>
       <li>
         <h3>Run without keys.</h3>
-        <p>Four of these projects ship a demo or mock mode that runs with no keys or accounts, so anyone can try them locally.</p>
-        <p class="evidence"><a href="https://github.com/omarpatel/trader-vaults#getting-started">trader-vaults#getting-started <span class="arrow" aria-hidden="true">↗</span></a><a href="https://github.com/omarpatel/agent-treasury#overview">agent-treasury#overview <span class="arrow" aria-hidden="true">↗</span></a><a href="https://github.com/omarpatel/ibkr-live-dashboard#getting-started">ibkr-live-dashboard#getting-started <span class="arrow" aria-hidden="true">↗</span></a><a href="https://github.com/omarpatel/paper-trading-platform#getting-started">paper-trading-platform#getting-started <span class="arrow" aria-hidden="true">↗</span></a></p>
+        <p>Many of these projects ship a demo, mock or paper mode that runs with no keys or accounts, so anyone can try them locally.</p>
+        <p class="evidence"><a href="https://github.com/omarpatel/agent-treasury#overview">agent-treasury#overview <span class="arrow" aria-hidden="true">↗</span></a><a href="https://github.com/omarpatel/ibkr-live-dashboard#features">ibkr-live-dashboard#features <span class="arrow" aria-hidden="true">↗</span></a><a href="https://github.com/omarpatel/fee-treasury-perps-engine#getting-started">fee-treasury-perps-engine#getting-started <span class="arrow" aria-hidden="true">↗</span></a><a href="https://github.com/omarpatel/fee-split-vaults-postmortem#getting-started">fee-split-vaults-postmortem#getting-started <span class="arrow" aria-hidden="true">↗</span></a></p>
       </li>
     </ol>
   </section>
