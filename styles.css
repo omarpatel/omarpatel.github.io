@@ -201,6 +201,27 @@ p code { font: 400 .875em/1 var(--mono); color: var(--text); overflow-wrap: anyw
   font-size: 13px; line-height: 20px; color: var(--text-3);
 }
 
+/* Founded: launched products */
+.founded-note { margin-top: 12px; color: var(--text-3); font-size: 15px; line-height: 24px; }
+.ventures { list-style: none; padding: 0; margin-top: 32px; border-bottom: 1px solid var(--rule); }
+.ventures li {
+  display: grid; grid-template-columns: 200px minmax(0, 1fr) 96px; column-gap: 16px; row-gap: 2px;
+  align-items: baseline; padding: 13px 0 14px; border-top: 1px solid var(--rule);
+}
+.ventures .v-name { grid-column: 1; grid-row: 1 / span 2; font: 500 16px/26px var(--sans); color: var(--text); }
+.ventures .v-name a { text-decoration-color: var(--rule-strong); }
+.ventures .v-name a:hover { text-decoration-color: currentColor; }
+.ventures .v-line { grid-column: 2; font-size: 15px; line-height: 24px; color: var(--text-2); }
+.ventures .v-when { grid-column: 3; grid-row: 1; text-align: right; }
+.ventures .v-when, .ventures .v-meta {
+  font: 400 12.5px/20px var(--mono); color: var(--text-3); font-variant-numeric: tabular-nums;
+}
+.ventures .v-meta { grid-column: 2 / -1; }
+.ventures .v-meta a { color: var(--text-3); }
+.ventures .v-meta a:hover { color: var(--text); }
+.ventures .v-meta > span { white-space: nowrap; }
+.v-status { color: var(--text-2); }
+
 /* Lightbox */
 .lightbox {
   border: 0; padding: 0; margin: auto; background: transparent; color: var(--text-3);
@@ -234,6 +255,10 @@ p code { font: 400 .875em/1 var(--mono); color: var(--text); overflow-wrap: anyw
   .chev { grid-column: 3; grid-row: 1; }
   .row-line { grid-column: 1 / -1; grid-row: 2; }
   .foot { margin-top: 88px; }
+  .ventures li { grid-template-columns: minmax(0, 1fr) auto; }
+  .ventures .v-name { grid-row: 1; grid-column: 1; }
+  .ventures .v-when { grid-column: 2; grid-row: 1; }
+  .ventures .v-line, .ventures .v-meta { grid-column: 1 / -1; }
 }
 @media (max-width: 639px) {
   .source { display: none; }
